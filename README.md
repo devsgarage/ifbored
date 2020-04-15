@@ -14,5 +14,12 @@
 
 
 ### Things to do
-- Learn Blazor Web Assembly - @curiousdrive
-- 
+_Want to help? Suggest ideas by submitting a PR. Please include a title, link to content, your handle._
+_Format: [{title}]({link to source}) - {suggested by}_
+
+- [Learn Blazor Web Assembly](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) - @curiousdrive
+- [Learn Vue.js]
+- Learn Gridsome
+- Learn React
+- Learn Gatsby
+
