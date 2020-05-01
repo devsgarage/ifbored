@@ -1,6 +1,10 @@
 # ifbored
 
-**Purpose**: Provide a suggestion service for people looking for something to do during a period of boredom
+## Purpose 
+Provide a suggestion service for people looking for something to do during a period of boredom
+
+## Architectrure
+:::image type="content" source="assets/ifBored.dev.png" alt-text="Architecture Diagram":::
 
 **Service Providers**
 - **CMS:** [Kentico Kontent](https://kontent.ai)
@@ -13,7 +17,7 @@
 - **Source Code Repo:** [GitHub](https://github.com)
 
 
-### Things to do
+## Things to do
 _Want to help? Suggest ideas by submitting a PR. Please include a title, link to content, your handle._
 _Format: [{title}]({link to source}) - {suggested by}_
 
