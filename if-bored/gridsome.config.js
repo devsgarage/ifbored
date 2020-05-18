@@ -5,6 +5,13 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
-  plugins: []
+  siteName: 'ifBored',
+  plugins: [{
+    use: '@meeg/gridsome-source-kentico-kontent',
+    options: {
+      deliveryClientConfig: {
+        projectId: process.env.KENTICO_KONTENT_PROJECT_ID
+      }
+    }
+  }]
 }

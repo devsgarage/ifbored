@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^9.1.1",
+    "@meeg/gridsome-source-kentico-kontent": "^0.4.1",
     "body-parser": "^1.19.0",
     "faunadb": "^2.13.1",
     "gridsome": "^0.7.0",

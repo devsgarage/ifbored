@@ -1,7 +1,7 @@
 # If Bored Service
 
 ### Purpose 
-Provide a suggestion service for people looking for something to do during a period of boredom
+Provide a suggestion service for people looking for something to do during a period of boredom, or inactivity
 
 ### Architectrure
 :::image type="content" source="assets/ifBored.dev.png" alt-text="Architecture Diagram":::
