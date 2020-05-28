@@ -27,7 +27,6 @@ export default {
     },
     methods: {
       handleSubmit(e) {
-        
       }
     },
     watch: {
