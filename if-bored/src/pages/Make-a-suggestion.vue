@@ -2,6 +2,7 @@
     <Layout>
         <h1>Make A Suggestion</h1>
         <p><i>TBD: text describing why and what types of suggestions to submit</i></p>
+        <h2 v-html="thankYouText" />
         <form id="suggestionSection" @submit.prevent="formSubmit">
             <div id="sectionTitle">Suggestion</div>
             <div class="inputGroup">
@@ -32,14 +33,12 @@ import axios from 'axios'
 export default {    
     data() {
       return {
-        suggestion: {}
+        suggestion: {},
+        thankYouText: ""
       }
     },
     methods: {
-      async formSubmit(e) { 
-        console.log('submit fired');  
-        console.log(this.suggestion); 
-        console.log(this.suggestion.title);     
+      async formSubmit(e) {   
         let suggestionToSend = {
             title: this.suggestion.title,
             description: this.suggestion.description,
@@ -48,8 +47,9 @@ export default {
             };
         console.log(suggestionToSend);
         try{
-        let result = await axios.post('http://localhost:34567/make-a-suggestion/', suggestionToSend );
-        console.log(result);
+            let result = await axios.post('http://localhost:65326/make-a-suggestion/', suggestionToSend );
+            this.thankYouText = "Thank you for you suggestion: " + this.suggestion.title;
+            this.suggestion = {};
         } catch(error) {
             console.log(error);
         }

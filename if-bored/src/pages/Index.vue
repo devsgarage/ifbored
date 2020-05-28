@@ -10,8 +10,9 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
     </p>
 
-    <p>
+    <p class="action-links">
       <g-link :to="`/question/${$page.allQuestions.edges[0].node.id}`">Let's get started</g-link>
+      <g-link to="/make-a-suggestion">Make a suggestion</g-link>
     </p>
     <p class="home-links">
       <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
@@ -37,12 +38,19 @@ query {
 export default {
   metaInfo: {
     title: 'Welcome'
+  },
+  created: function () {
+    localStorage.removeItem('answers');
   }
 }
 </script>
 
 <style>
 .home-links a {
+  margin-right: 1rem;
+}
+
+.action-links a {
   margin-right: 1rem;
 }
 </style>

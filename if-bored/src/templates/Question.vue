@@ -4,7 +4,7 @@
         <h1 v-html="$page.questions.name"/>
         <p v-html="$page.questions.question" />
         <input id="questionAnswer" placeholder="answer" v-model="formData.questionAnswer" />
-        <button type="submit">Submit answer</button>
+        <button type="submit" v-on:click="handleSubmit">Submit answer</button>
     </div>    
   </Layout>
 </template>
@@ -12,6 +12,8 @@
 <page-query>
 query ($id: ID!) {
   questions(id: $id) {
+    id
+    order
     name      
     question
   }
@@ -19,6 +21,20 @@ query ($id: ID!) {
 </page-query>
 
 <script>
+import axios from 'axios'
+function storeAnswer(answer, questionNumber){
+  let value = localStorage.getItem('answers');
+  let answers = {};
+    console.log(value);
+  if (value){
+    answers = JSON.parse(value);
+  }
+  answers[questionNumber] = answer;
+    console.log('answers');
+    console.log(answers);
+  localStorage.setItem('answers', JSON.stringify(answers));
+}
+
 export default {
     data() {
       return {
@@ -26,17 +42,22 @@ export default {
       }
     },
     methods: {
-      handleSubmit(e) {
+      async handleSubmit(e) {                
+        storeAnswer(this.formData.questionAnswer, this.$page.questions.order);
+        let result = await axios.get('http://localhost:65326/get-next-question-answer?questionNumber='+this.$page.questions.order);
+        
+        if (result.data.nextQuestionId) {
+          this.$router.push('/question/' + result.data.nextQuestionId);        
+        }
+        else {
+          let answers = localStorage.getItem('answers');
+          result = await axios.post('http://localhost:65326/get-suggestion/', answers)
+          this.$router.push('/suggestion/' + result.data.answerId);
+        }
+        this.formData = {};
       }
     },
     watch: {
-      formData: {
-        handler() {
-          localStorage.setItem('question', this.formData.questionAnswer);
-          console.log("handler fired");
-        },
-        deep: true,
-      }
     }
 }
 </script>

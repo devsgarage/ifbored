@@ -10,7 +10,7 @@ module.exports = {
     use: '@meeg/gridsome-source-kentico-kontent',
     options: {
       deliveryClientConfig: {
-        projectId: process.env.KENTICO_KONTENT_PROJECT_ID
+        projectId: process.env.KONTENT_PROJECT_ID
       }
     }
   }]
