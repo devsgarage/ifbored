@@ -3,7 +3,7 @@
 ### Purpose 
 Provide a suggestion service for people looking for something to do during a period of boredom, or inactivity
 
-### Architectrure
+### Architecture
 :::image type="content" source="assets/ifBored.dev.png" alt-text="Architecture Diagram":::
 
 **Service Providers**
