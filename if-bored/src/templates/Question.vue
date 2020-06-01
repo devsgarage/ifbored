@@ -44,14 +44,14 @@ export default {
     methods: {
       async handleSubmit(e) {                
         storeAnswer(this.formData.questionAnswer, this.$page.questions.order);
-        let result = await axios.get('http://localhost:65326/get-next-question-answer?questionNumber='+this.$page.questions.order);
+        let result = await axios.get(process.env.GRIDSOME_FUNCTIONS_URL + '/get-next-question-answer?questionNumber='+this.$page.questions.order);
         
         if (result.data.nextQuestionId) {
           this.$router.push('/question/' + result.data.nextQuestionId);        
         }
         else {
           let answers = localStorage.getItem('answers');
-          result = await axios.post('http://localhost:65326/get-suggestion/', answers)
+          result = await axios.post(process.env.GRIDSOME_FUNCTIONS_URL + '/get-suggestion/', answers)
           this.$router.push('/suggestion/' + result.data.answerId);
         }
         this.formData = {};

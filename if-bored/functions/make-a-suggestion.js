@@ -21,16 +21,7 @@ function generateUUID() { // Public Domain/MIT
 
 exports.handler = async function(event, context, callback) {
     //TODO: Only allow POST and OPTIONS verbs
-    /*
-    if (event.httpMethod !== 'POST') {
-        // To enable CORS
-        return {
-        statusCode: 200, // <-- Important!
-        headers,
-        body: 'This was not a POST request!'
-        };
-    }
-    */
+    
    const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',

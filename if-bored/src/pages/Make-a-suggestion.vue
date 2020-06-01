@@ -47,13 +47,13 @@ export default {
             };
         console.log(suggestionToSend);
         try{
-            let result = await axios.post('http://localhost:65326/make-a-suggestion/', suggestionToSend );
-            this.thankYouText = "Thank you for you suggestion: " + this.suggestion.title;
+            let result = await axios.post(process.env.GRIDSOME_FUNCTIONS_URL +'/make-a-suggestion/', suggestionToSend );
+            this.thankYouText = "Thank you for your suggestion: " + this.suggestion.title;
             this.suggestion = {};
         } catch(error) {
             console.log(error);
         }
-      }
+        },
     }
 }
 </script>
