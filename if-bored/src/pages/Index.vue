@@ -40,7 +40,7 @@ export default {
     title: 'Welcome'
   },
   created: function () {
-    localStorage.removeItem('answers');
+    window.localStorage.removeItem('answers');
   }
 }
 </script>
