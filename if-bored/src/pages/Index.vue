@@ -39,8 +39,8 @@ export default {
   metaInfo: {
     title: 'Welcome'
   },
-  created: function () {
-    window.localStorage.removeItem('answers');
+  mounted: function () {
+    localStorage.removeItem('answers');
   }
 }
 </script>
