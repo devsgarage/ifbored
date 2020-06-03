@@ -21,6 +21,10 @@
                 <label id="tagId">Tags</label>
                 <input id="tags" placeholder="Comma delimted tags (e.g. JavaScript, Vue, Gridsome)" v-model="suggestion.tags" aria-labelledby="sectionTitle tagId"/>
             </div>
+            <div class="inputGroup">
+                <label id="contributorId">Contributor</label>
+                <input id="contributor" placeholder="(Optional) Your name or handle" v-model="suggestion.contributor" aria-labelledby="sectionTitle contributorId" />
+            </div>
             <button id="btnSubmit" type="submit">Submit suggestion</button>
         </form>
     </Layout>
@@ -43,7 +47,8 @@ export default {
             title: this.suggestion.title,
             description: this.suggestion.description,
             resource: this.suggestion.link,
-            tags: this.suggestion.tags
+            tags: this.suggestion.tags,
+            contributor: this.suggestion.contributor
             };
         console.log(suggestionToSend);
         try{

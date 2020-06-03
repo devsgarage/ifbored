@@ -25,7 +25,7 @@ exports.handler = async function(event, context, callback) {
    const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
     };
 
@@ -39,8 +39,6 @@ exports.handler = async function(event, context, callback) {
 
     if (event.httpMethod === 'POST') {
         let suggestion = JSON.parse(event.body);
-        console.log(event);
-        console.log(suggestion.title);
 
         const client = new KontentManagement.ManagementClient({
             projectId: process.env.KONTENT_PROJECT_ID, // id of your Kentico Kontent project
@@ -86,6 +84,12 @@ exports.handler = async function(event, context, callback) {
                     codename: 'suggested_tags_by_suggestor'
                 },
                 value: suggestion.tags
+            },
+            {
+                element: {
+                    codename: 'contributor'
+                },
+                value: suggestion.contributor
             }
         ]).toPromise();
 
